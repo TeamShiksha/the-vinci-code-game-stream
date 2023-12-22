@@ -1,4 +1,4 @@
-import "./styles.css";
+import './styles.css';
 /*
 1. Get the user's name
 2. Show a menu
@@ -7,7 +7,7 @@ import "./styles.css";
   b. See Leaderboard
   c. Update Name
 */
-const myGameContainer = document.getElementById("game");
+const myGameContainer = document.getElementById('game');
 
 class Game {
   constructor(container) {
@@ -19,34 +19,28 @@ class Game {
   }
 
   start() {
-    this.name = prompt("Enter your name:") || "Guest";
+    this.name = prompt('Enter your name:') || 'Guest';
     this.displayMenu();
   }
 
   handleMenuClick = function (event) {
     switch (event.target.dataset?.val) {
-      case "1":
+      case '1':
         this.updateLevel(1);
         this.gameLoop();
         break;
-      case "2":
-        console.log("Will Show Leaderboard Now...");
+      case '2':
+        console.log('Will Show Leaderboard Now...');
         break;
-      case "3":
-        this.name = prompt("Enter name to be updated:") || "Guest";
+      case '3':
+        this.name = prompt('Enter name to be updated:') || this.name;
         this.displayMenu();
     }
   }.bind(this);
 
   displayMenu() {
-    this.container.innerHTML = `Welcome ${this.name},
-    <ol>
-      <li data-val="1">Start New Game</li>
-      <li data-val="2">See Leaderboard</li>
-      <li data-val="3">Update Name</li>
-    </ol>`;
-    this.container.removeEventListener("click", this.handleMenuClick);
-    this.container.addEventListener("click", this.handleMenuClick);
+    document.querySelector('.username').innerText = `${this.name}`;
+    this.container.addEventListener('click', this.handleMenuClick);
   }
   updateLevel(level = 1) {
     this.generatedNumbers = [];
@@ -69,9 +63,9 @@ class Game {
   getNumbersFromUser() {
     for (let i = 0; i < this.level; i++) {
       let enteredValue = prompt(
-        "Enter values in order one at a time: (press enter after every value)",
+        'Enter values in order one at a time: (press enter after every value)'
       );
-      if (enteredValue === "" || enteredValue === null) {
+      if (enteredValue === '' || enteredValue === null) {
         enteredValue = NaN;
       }
       this.enteredNumbers.push(Number(enteredValue));
@@ -87,6 +81,7 @@ class Game {
 
   gameLoop() {
     this.generateNumbersForLevel();
+
     this.displayNumbersForLevel();
     this.getNumbersFromUser();
     if (this.verifyLevel()) {
@@ -100,3 +95,6 @@ class Game {
 
 let myGameInstance = new Game(myGameContainer);
 myGameInstance.start();
+document
+  .querySelector('.fa-pen-to-square')
+  .addEventListener('click', myGameInstance.handleMenuClick);
