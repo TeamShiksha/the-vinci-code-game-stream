@@ -113,3 +113,125 @@ header {
     display: none;
   }
 }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+}
+
+.modal-content h2 {
+  color: #2d4884;
+  margin-bottom: 1rem;
+}
+
+.modal-content input[type='text'] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid #2d4884;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.number-display {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #2d4884;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.score-display {
+  font-size: 1.5rem;
+  color: #2d4884;
+  margin-bottom: 1rem;
+}
+
+/* Input Interface Styles */
+.input-interface {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-interface.active {
+  display: flex;
+}
+
+.input-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+}
+
+.input-container h2 {
+  color: #2d4884;
+  margin-bottom: 1.5rem;
+}
+
+.number-inputs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.number-inputs input {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid #2d4884;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #50d673;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #3fb55d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
